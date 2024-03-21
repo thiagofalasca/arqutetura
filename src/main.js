@@ -1,9 +1,16 @@
 import { Aluno } from "./Aluno.js";
-import { Turma } from "./Turma.js";
 import { TurmaPresencial } from "./TurmaPresencial.js";
 
 const aluno = new Aluno("Thiago", "12345", "a2350670")
-console.log(`Aluno:\nNome: ${aluno.nome}\nLogin: ${aluno.login}\nRA: ${aluno.RA}\n`)
-
 const turma = new TurmaPresencial(123, 8, 80)
-console.log(`Turma:\nCódigo: ${turma.codigo}\nNota: ${turma.nota}\nFrequencia: ${turma.frequencia}\nSituação: ${turma.aprovado() ? "Aprovado": "Reprovado"}`)
+aluno.add_turma(turma)
+
+console.log(`
+Nome: ${aluno.nome}
+Login: ${aluno.login}
+RA: ${aluno.RA}
+Código da turma: ${aluno.turma[0].codigo}
+Nota: ${aluno.turma[0].nota}
+Frequência: ${aluno.turma[0].frequencia}
+Situação: ${aluno.turma[0].aprovado() ? "Aprovado" : "Reprovado"}
+`)
